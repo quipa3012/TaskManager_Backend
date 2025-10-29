@@ -1,0 +1,20 @@
+services:
+  - type: web
+    name: taskmanager-backend
+    env: java
+    region: oregon
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/*.jar"
+    envVars:
+      - key: SPRING_DATASOURCE_URL
+        value: jdbc:mysql://hopper.proxy.rlwy.net:22421/railway?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
+      - key: SPRING_DATASOURCE_USERNAME
+        value: root
+      - key: SPRING_DATASOURCE_PASSWORD
+        value: BITxCQxkIzONnKxDFWrcsPkzETDksKxe
+      - key: SPRING_JPA_HIBERNATE_DDL_AUTO
+        value: update
+      - key: SPRING_JPA_SHOW_SQL
+        value: true
+      - key: PORT
+        value: 8080
