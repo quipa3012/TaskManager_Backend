@@ -1,10 +1,10 @@
 services:
   - type: web
     name: taskmanager-backend
-    env: java
+    env: docker
+    plan: free
     region: oregon
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/*.jar"
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: SPRING_DATASOURCE_URL
         value: jdbc:mysql://hopper.proxy.rlwy.net:22421/railway?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true
